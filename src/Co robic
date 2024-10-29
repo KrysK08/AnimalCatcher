@@ -1,0 +1,14 @@
+1. Game design
+    game mechanics how it works etc.
+    Animal types and their behaviours(graphic also)
+    Characters and how they act(also do graphic)
+    user interface menu, score, timer
+2.Menu
+    Initlize game, create menu start game
+    The game starts on menu and lets the user pick the character and than starts game
+3.Game Start
+    Create the world
+    Spawning animals and character
+    Allow the player and animals to move
+    The player can catch animals
+    Updating player score

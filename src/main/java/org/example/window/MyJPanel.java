@@ -14,6 +14,7 @@ public class MyJPanel extends JPanel {
         buttonTitle.setPreferredSize(new Dimension(150, 50)); // Set button sizes
         buttonBoy.setPreferredSize(new Dimension(150, 50));
         buttonGirl.setPreferredSize(new Dimension(150, 50));
+
         setLayout(new BorderLayout());
 
         add(buttonTitle, BorderLayout.NORTH);

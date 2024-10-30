@@ -1,20 +1,24 @@
 package org.example.window;
 import javax.swing.*;
+import java.awt.*;
 
 
-public class MyJFrame{
- private JFrame window;
+public class MyJFrame extends JFrame {
+ public JFrame window;
 
  public MyJFrame() {
-  window = new JFrame();
-  window.setTitle("Animal Catcher");
-  window.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-  window.setSize(500, 400);
-  window.setLocationRelativeTo(null);
+
+  setTitle("Animal Catcher");
+  setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+  setSize(1600, 1000);
+  setLocationRelativeTo(null);
+  setLayout(new BorderLayout());
+
+  MyJPanel panel = new MyJPanel();
+  add(panel);
+
+  setVisible(true);
 
  }
 
- public void show() {
-  window.setVisible(true);
- }
 }

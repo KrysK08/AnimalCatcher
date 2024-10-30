@@ -4,7 +4,7 @@ import org.example.animal.Animal;
 
 public class Pigeon extends Animal implements FlyingAnimal {
     public Pigeon() {
-        super("Pigeon",7);
+        super("Pigeon",3);
     }
 
     @Override

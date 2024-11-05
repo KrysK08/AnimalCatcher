@@ -14,6 +14,7 @@ public class MyJFrame extends JFrame {
   setLocationRelativeTo(null);
   setLayout(new BorderLayout());
 
+
   MyJPanel panel = new MyJPanel();
   add(panel);
 

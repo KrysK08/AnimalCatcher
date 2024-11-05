@@ -8,7 +8,7 @@ public class MyJPanel extends JPanel {
         setLayout(new BorderLayout());
         setBackground( new Color(253, 214, 255));
 
-        JTextField Title = new JTextField("Wybierz postać");
+        JTextField Title = new JTextField("Choose your character");
         Title.setPreferredSize(new Dimension(200, 60));
         Title.setHorizontalAlignment(SwingConstants.CENTER);
         Title.setFont(new Font("Times New Roman", Font.BOLD, 25));
@@ -44,14 +44,14 @@ public class MyJPanel extends JPanel {
         JPanel statsPanel = new JPanel();
         statsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 125, 20));
 
-        JTextField boyStats = new JTextField("Statystyki", 16);
+        JTextField boyStats = new JTextField("Girl character\nName: ???\nSpeed: ???\nJumping: ???\n", 16);
         boyStats.setPreferredSize(new Dimension(320, 400));
         boyStats.setEditable(false);
         boyStats.setBackground(Color.PINK);
         boyStats.setForeground(Color.BLACK);
         boyStats.setFont(new Font("Arial", Font.PLAIN, 16));
 
-        JTextField girlStats = new JTextField("Statystyki", 15);
+        JTextField girlStats = new JTextField("Boy character\nName: ???\nSpeed: ???\nJumping: ???\n", 15);
         girlStats.setPreferredSize(new Dimension(300, 400));
         girlStats.setEditable(false);
         girlStats.setBackground(Color.PINK);

@@ -2,11 +2,15 @@ package org.example.window;
 
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 
 public class MyJPanel extends JPanel {
     public MyJPanel() {
         setLayout(new BorderLayout());
-        setBackground( new Color(253, 214, 255));
+
+
+
 
         JTextField Title = new JTextField("Choose your character");
         Title.setPreferredSize(new Dimension(200, 60));
@@ -21,16 +25,31 @@ public class MyJPanel extends JPanel {
         JButton buttonBoyImage = new JButton(new ImageIcon(scaledImage));
         buttonBoyImage.setPreferredSize(new Dimension(320, 300));
 
+        buttonBoyImage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Background();
+            }
+        });
+
         ImageIcon buttonGImage = new ImageIcon("C:/Users/uczen/IdeaProjects/AnimalCatcher/src/main/java/org/example/img/girl.jpg");
         Image imagegirl = buttonGImage.getImage();
         Image scaledGrilImage = imagegirl.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
         JButton buttonGirlImage = new JButton(new ImageIcon(scaledGrilImage));
         buttonGirlImage.setPreferredSize(new Dimension(300, 300));
 
+        buttonGirlImage.addActionListener(new ActionListener() {
+            @Override
+            public void actionPerformed(ActionEvent e) {
+                new Background();
+            }
+        });
+
         JPanel imagePanel = new JPanel();
         imagePanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
         imagePanel.add(buttonBoyImage);
         imagePanel.add(buttonGirlImage);
+        imagePanel.setBackground( new Color(255, 220, 236));
 
         JPanel spacerPanel = new JPanel();
         spacerPanel.setPreferredSize(new Dimension(getWidth(), 15));
@@ -61,6 +80,7 @@ public class MyJPanel extends JPanel {
 
         statsPanel.add(boyStats);
         statsPanel.add(girlStats);
+        statsPanel.setBackground( new Color(255, 220, 236));
 
         add(Title, BorderLayout.NORTH);
         add(imageAndSpacerPanel, BorderLayout.CENTER);

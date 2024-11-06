@@ -8,11 +8,16 @@ public class MyJFrame extends JFrame {
 
  public MyJFrame() {
 
+  Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
+  int screenWidth = screenSize.width;
+  int screenHeight = screenSize.height;
+
   setTitle("Animal Catcher");
   setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-  setSize(1600, 1000);
-  setLocationRelativeTo(null);
+  setSize(screenWidth+20, screenHeight-30);
+  setLocation(0,0);
   setLayout(new BorderLayout());
+
 
 
   MyJPanel panel = new MyJPanel();

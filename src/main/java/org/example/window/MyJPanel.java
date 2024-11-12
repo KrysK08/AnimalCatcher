@@ -6,12 +6,12 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyJPanel extends JPanel {
+    private static String wchichCahracter;
+    public static String getWchichCahracter() {
+        return wchichCahracter;
+    }
     public MyJPanel() {
         setLayout(new BorderLayout());
-
-
-
-
         JTextField Title = new JTextField("Choose your character");
         Title.setPreferredSize(new Dimension(200, 60));
         Title.setHorizontalAlignment(SwingConstants.CENTER);
@@ -19,7 +19,7 @@ public class MyJPanel extends JPanel {
         Title.setBackground(Color.WHITE);
         Title.setEditable(false);
 
-        ImageIcon buttonBImage = new ImageIcon("C:/Users/uczen/IdeaProjects/AnimalCatcher/src/main/java/org/example/img/boy.jpg");
+        ImageIcon buttonBImage = new ImageIcon("src/main/java/org/example/img/boy.jpg");
         Image imageboy = buttonBImage.getImage();
         Image scaledImage = imageboy.getScaledInstance(320, 300, Image.SCALE_SMOOTH);
         JButton buttonBoyImage = new JButton(new ImageIcon(scaledImage));
@@ -29,10 +29,11 @@ public class MyJPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Background();
+                wchichCahracter = "boy.jpg";
             }
         });
 
-        ImageIcon buttonGImage = new ImageIcon("C:/Users/uczen/IdeaProjects/AnimalCatcher/src/main/java/org/example/img/girl.jpg");
+        ImageIcon buttonGImage = new ImageIcon("src/main/java/org/example/img/girl.jpg");
         Image imagegirl = buttonGImage.getImage();
         Image scaledGrilImage = imagegirl.getScaledInstance(300, 300, Image.SCALE_SMOOTH);
         JButton buttonGirlImage = new JButton(new ImageIcon(scaledGrilImage));
@@ -42,6 +43,8 @@ public class MyJPanel extends JPanel {
             @Override
             public void actionPerformed(ActionEvent e) {
                 new Background();
+                wchichCahracter = "girl.jpg";
+
             }
         });
 

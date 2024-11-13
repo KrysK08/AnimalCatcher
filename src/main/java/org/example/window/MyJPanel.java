@@ -6,10 +6,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 public class MyJPanel extends JPanel {
-    private static String wchichCahracter;
-    public static String getWchichCahracter() {
-        return wchichCahracter;
-    }
+
     public MyJPanel() {
         setLayout(new BorderLayout());
         JTextField Title = new JTextField("Choose your character");
@@ -28,8 +25,8 @@ public class MyJPanel extends JPanel {
         buttonBoyImage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                wchichCahracter = "src/main/java/org/example/img/boy.jpg";
                 new Background();
-                wchichCahracter = "boy.jpg";
             }
         });
 
@@ -42,8 +39,8 @@ public class MyJPanel extends JPanel {
         buttonGirlImage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
+                wchichCahracter = "src/main/java/org/example/img/girl.jpg";
                 new Background();
-                wchichCahracter = "girl.jpg";
 
             }
         });
@@ -90,5 +87,9 @@ public class MyJPanel extends JPanel {
         add(statsPanel, BorderLayout.SOUTH);
 
         setVisible(true);
+    }
+    private static String wchichCahracter;
+    public static String getWchichCahracter() {
+        return wchichCahracter;
     }
 }

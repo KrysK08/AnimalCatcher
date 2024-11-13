@@ -33,10 +33,10 @@ public class Background extends JFrame {
         setLocationRelativeTo(null);
         setLayout(null);
         if (character.equals("src/main/java/org/example/img/boy.png")) {
-            player = new Boy("Central Cee", 16, 500);
+            player = new Boy("Central Cee", 7, 500);
             jumpHeight = 300;
         } else {
-            player = new Girl("Ice Spice", 20, 250);
+            player = new Girl("Ice Spice", 9, 250);
             jumpHeight = 280;
         }
 

@@ -25,7 +25,7 @@ public class MyJPanel extends JPanel {
         buttonBoyImage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                wchichCahracter = "src/main/java/org/example/img/boy.jpg";
+                wchichCahracter = "src/main/java/org/example/img/boy.png";
                 new Background();
             }
         });

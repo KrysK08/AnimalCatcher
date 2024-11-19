@@ -14,6 +14,7 @@ public class Background extends JFrame {
     private Image skyImage = new ImageIcon("src/main/java/org/example/img/sky.jpg").getImage();
     private Image grassImage = new ImageIcon("src/main/java/org/example/img/grass.jpg").getImage();
     private Image characterImage = new ImageIcon(character).getImage();
+    private Image catImage = new ImageIcon("src/main/java/org/example/img/cat.jpg").getImage();
 
     private int characterX = 500;
     private int characterY = 500;
@@ -137,5 +138,6 @@ public class Background extends JFrame {
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 200, 200, this);
+        g.drawImage(catImage, 50, 600, 40, 53, this);
     }
 }

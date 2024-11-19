@@ -14,7 +14,13 @@ public class Background extends JFrame {
     private Image skyImage = new ImageIcon("src/main/java/org/example/img/sky.jpg").getImage();
     private Image grassImage = new ImageIcon("src/main/java/org/example/img/grass.jpg").getImage();
     private Image characterImage = new ImageIcon(character).getImage();
-    private Image catImage = new ImageIcon("src/main/java/org/example/img/cat.jpg").getImage();
+    private Image catImage = new ImageIcon("src/main/java/org/example/img/cat.png").getImage();
+    private Image dogImage = new ImageIcon("src/main/java/org/example/img/dog.png").getImage();
+    private Image dinosaurImage = new ImageIcon("src/main/java/org/example/img/dinosaur.png").getImage();
+    private Image rabbitImage = new ImageIcon("src/main/java/org/example/img/rabbit.png").getImage();
+    private Image pigeonImage = new ImageIcon("src/main/java/org/example/img/pigeon.png").getImage();
+    private Image sparrowImage = new ImageIcon("src/main/java/org/example/img/sparrow.png").getImage();
+
 
     private int characterX = 500;
     private int characterY = 500;
@@ -138,6 +144,12 @@ public class Background extends JFrame {
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 200, 200, this);
-        g.drawImage(catImage, 50, 600, 40, 53, this);
+        g.drawImage(catImage, 50, 600, 80, 80, this);
+        g.drawImage(dogImage, 100, 600, 80, 80, this);
+        g.drawImage(dinosaurImage, 150, 600, 80, 80, this);
+        g.drawImage(rabbitImage, 200, 600, 80, 80, this);
+        g.drawImage(pigeonImage, 250, 100, 80, 80, this);
+        g.drawImage(sparrowImage, 300, 150, 80, 80, this);
+
     }
 }

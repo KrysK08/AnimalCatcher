@@ -40,7 +40,6 @@ public class Background extends JFrame {
             jumpHeight = 280;
         }
 
-
         addKeyListener(new KeyAdapter() {
             @Override
             public void keyPressed(KeyEvent e) {
@@ -60,6 +59,9 @@ public class Background extends JFrame {
 
     private void moveCharacter(int keyCode) {
         int speed = player.getSpeed();
+
+        int previousX = characterX;
+        int previousY = characterY;
 
         switch (keyCode) {
             case KeyEvent.VK_W:
@@ -83,18 +85,27 @@ public class Background extends JFrame {
                 }
                 break;
         }
-        repaint();
+
+        Rectangle oldRect = new Rectangle(previousX, previousY, 200, 200);
+        Rectangle newRect = new Rectangle(characterX, characterY, 200, 200);
+
+        oldRect.add(newRect);
+
+        repaint(oldRect.x, oldRect.y, oldRect.width, oldRect.height);
     }
 
     private void jump() {
         jumping = true;
         new Thread(() -> {
             int startY = characterY;
+            Rectangle jumpRect = new Rectangle(characterX, characterY, 200, 200);
+
             for (int i = 0; i < jumpHeight; i++) {
                 characterY--;
-                repaint();
+                jumpRect.setLocation(characterX, characterY);
+                repaint(jumpRect.x, jumpRect.y, jumpRect.width, jumpRect.height);
                 try {
-                    Thread.sleep(5);
+                    Thread.sleep(2);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -102,9 +113,10 @@ public class Background extends JFrame {
 
             for (int i = 0; i < jumpHeight; i++) {
                 characterY++;
-                repaint();
+                jumpRect.setLocation(characterX, characterY);
+                repaint(jumpRect.x, jumpRect.y, jumpRect.width, jumpRect.height);
                 try {
-                    Thread.sleep(5);
+                    Thread.sleep(4);
                 } catch (InterruptedException e) {
                     e.printStackTrace();
                 }
@@ -112,6 +124,8 @@ public class Background extends JFrame {
 
             characterY = startY;
             jumping = false;
+
+            repaint(jumpRect.x, jumpRect.y, jumpRect.width, jumpRect.height);
         }).start();
     }
 
@@ -119,9 +133,8 @@ public class Background extends JFrame {
     public void paint(Graphics g) {
         super.paint(g);
 
-        g.drawImage(skyImage, 0, 0, getWidth(), getHeight() / 2, this);  // Top half of the window
-
-        g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);  // Bottom half of the window
+        g.drawImage(skyImage, 0, 0, getWidth(), getHeight() / 2, this);
+        g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 200, 200, this);
     }

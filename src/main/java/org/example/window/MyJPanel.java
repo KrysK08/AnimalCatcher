@@ -39,7 +39,7 @@ public class MyJPanel extends JPanel {
         buttonGirlImage.addActionListener(new ActionListener() {
             @Override
             public void actionPerformed(ActionEvent e) {
-                wchichCahracter = "src/main/java/org/example/img/girl.jpg";
+                wchichCahracter = "src/main/java/org/example/img/girl.png";
                 new Background();
 
             }

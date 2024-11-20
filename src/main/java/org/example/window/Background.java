@@ -1,5 +1,6 @@
 package org.example.window;
 
+import org.example.animal.running.Cat;
 import org.example.player.Boy;
 import org.example.player.Girl;
 import org.example.player.Player;
@@ -27,10 +28,26 @@ public class Background extends JFrame {
     private boolean jumping = false;
     private int jumpHeight = 0;
     private final int GRAVITY = 2;
+    private int catX = 100;
+    private int catY = 600;
+    private int dogX = 1000;
+    private int dogY = 650;
+    private int dinosaurX = 10;
+    private int dinosaurY = 500;
+    private int rabbitX = 700;
+    private int rabbitY = 550;
+    private int pigeonX = 400;
+    private int pigeonY = 100;
+    private int sparrowX = 800;
+    private int sparrowY = 300;
 
     private final Player player;
 
+    private Cat cat;
+    private int catSpeed;
+
     public Background() {
+
         int screenWidth = 1200;
         int screenHeight = 800;
 
@@ -46,6 +63,7 @@ public class Background extends JFrame {
             player = new Girl("Ice Spice", 9, 250);
             jumpHeight = 280;
         }
+        cat = new Cat();
 
         addKeyListener(new KeyAdapter() {
             @Override
@@ -136,6 +154,8 @@ public class Background extends JFrame {
         }).start();
     }
 
+
+
     @Override
     public void paint(Graphics g) {
         super.paint(g);
@@ -144,12 +164,12 @@ public class Background extends JFrame {
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 200, 200, this);
-        g.drawImage(catImage, 50, 600, 80, 80, this);
-        g.drawImage(dogImage, 100, 600, 80, 80, this);
-        g.drawImage(dinosaurImage, 150, 600, 80, 80, this);
-        g.drawImage(rabbitImage, 200, 600, 80, 80, this);
-        g.drawImage(pigeonImage, 250, 100, 80, 80, this);
-        g.drawImage(sparrowImage, 300, 150, 80, 80, this);
+        g.drawImage(catImage, catX, catY, 70, 80, this);
+        g.drawImage(dogImage, dogX, dogY, 80, 80, this);
+        g.drawImage(dinosaurImage, dinosaurX, dinosaurY, 100, 100, this);
+        g.drawImage(rabbitImage, rabbitX, rabbitY, 100, 100, this);
+        g.drawImage(pigeonImage, pigeonX, pigeonY, 120, 80, this);
+        g.drawImage(sparrowImage, sparrowX, sparrowY, 80, 80, this);
 
     }
 }

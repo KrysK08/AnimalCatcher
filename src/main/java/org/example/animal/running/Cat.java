@@ -10,16 +10,16 @@ public class Cat extends Animal implements RunningAnimal {
         this.speed = 3;
     }
 
-    @Override
+   @Override
     public void run() {
-        catX += speed;
+        /* += speed;
 
         if (catX > 1200) {
             catX = -70;
-        }
+        }*/
     }
 
-    public int getSpeed() {
+ /*    public int getSpeed() {
         return speed;
     }
 
@@ -41,5 +41,5 @@ public class Cat extends Animal implements RunningAnimal {
 
     public void setY(int y) {
         catY = y;
-    }
+    }*/
 }

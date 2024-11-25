@@ -9,14 +9,16 @@ public class MyJFrame extends JFrame {
  public MyJFrame() {
 
   Dimension screenSize = Toolkit.getDefaultToolkit().getScreenSize();
-  int screenWidth = screenSize.width;
   int screenHeight = screenSize.height;
 
   setTitle("Animal Catcher");
   setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
-  setSize(screenWidth+20, screenHeight-30);
+  setSize(1500, 880);
   setLocation(0,0);
   setLayout(new BorderLayout());
+  setResizable(false);
+  ImageIcon logo = new ImageIcon("src/main/java/org/example/img/logo.png");
+  setIconImage(logo.getImage());
 
 
 

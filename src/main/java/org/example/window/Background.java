@@ -56,6 +56,10 @@ public class Background extends JFrame {
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
         setLayout(null);
+        setResizable(false);
+        ImageIcon logo = new ImageIcon("src/main/java/org/example/img/logo.png");
+        setIconImage(logo.getImage());
+
         if (character.equals("src/main/java/org/example/img/boy.png")) {
             player = new Boy("Central Cee", 7, 500);
             jumpHeight = 300;

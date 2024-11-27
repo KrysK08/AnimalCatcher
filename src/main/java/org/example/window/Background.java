@@ -1,5 +1,7 @@
 package org.example.window;
 
+import org.example.animal.flying.Pigeon;
+import org.example.animal.jumping.Rabbit;
 import org.example.animal.running.Cat;
 import org.example.player.Boy;
 import org.example.player.Girl;
@@ -45,6 +47,8 @@ public class Background extends JFrame {
 
     private Cat cat;
     private int catSpeed;
+    private Pigeon pigeon;
+    private Rabbit rabbit;
 
     public Background() {
 
@@ -80,6 +84,21 @@ public class Background extends JFrame {
                 }
             }
         });
+
+        cat = new Cat();
+        cat.setX(100);
+        cat.setY(600);
+
+        pigeon = new Pigeon();
+        pigeon.setX(400);
+        pigeon.setY(100);
+
+        rabbit = new Rabbit();
+        rabbit.setX(700);
+        rabbit.setY(550);
+
+
+        new Thread(this::moveAnimals).start();
 
         setFocusable(true);
 
@@ -158,7 +177,21 @@ public class Background extends JFrame {
         }).start();
     }
 
+    private void moveAnimals() {
+        while (true) {
+            cat.run();
+            pigeon.fly();
+            rabbit.jump();
 
+            repaint();
+
+            try {
+                Thread.sleep(30);
+            } catch (InterruptedException e) {
+                e.printStackTrace();
+            }
+        }
+    }
 
     @Override
     public void paint(Graphics g) {

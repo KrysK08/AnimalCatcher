@@ -115,8 +115,8 @@ public class Background extends JFrame {
                 break;
         }
 
-        Rectangle oldRect = new Rectangle(previousX, previousY, 200, 200);
-        Rectangle newRect = new Rectangle(characterX, characterY, 200, 200);
+        Rectangle oldRect = new Rectangle(previousX, previousY, 150, 150);
+        Rectangle newRect = new Rectangle(characterX, characterY, 150, 150);
 
         oldRect.add(newRect);
 
@@ -127,7 +127,7 @@ public class Background extends JFrame {
         jumping = true;
         new Thread(() -> {
             int startY = characterY;
-            Rectangle jumpRect = new Rectangle(characterX, characterY, 200, 200);
+            Rectangle jumpRect = new Rectangle(characterX, characterY, 150, 150);
 
             for (int i = 0; i < jumpHeight; i++) {
                 characterY--;
@@ -167,7 +167,7 @@ public class Background extends JFrame {
         g.drawImage(skyImage, 0, 0, getWidth(), getHeight() / 2, this);
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
-        g.drawImage(characterImage, characterX, characterY, 200, 200, this);
+        g.drawImage(characterImage, characterX, characterY, 150, 150, this);
         g.drawImage(catImage, catX, catY, 70, 80, this);
         g.drawImage(dogImage, dogX, dogY, 80, 80, this);
         g.drawImage(dinosaurImage, dinosaurX, dinosaurY, 100, 100, this);

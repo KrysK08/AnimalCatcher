@@ -7,7 +7,7 @@ public class Pigeon extends Animal implements FlyingAnimal {
 
     public Pigeon() {
         super("Pigeon", 1, false);
-        this.speedX = 3;
+        this.speedX = 8;
     }
 
     @Override

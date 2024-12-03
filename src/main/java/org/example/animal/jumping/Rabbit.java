@@ -14,7 +14,7 @@ public class Rabbit extends Animal implements JumpingAnimal {
 
     @Override
     public void jump() {
-        if (movingUp) {
+       /* if (movingUp) {
             if (getY() > 450 - jumpHeight) {
                 setY(getY() - 2);
             } else {
@@ -26,6 +26,6 @@ public class Rabbit extends Animal implements JumpingAnimal {
             } else {
                 movingUp = true;
             }
-        }
+        }*/
     }
 }

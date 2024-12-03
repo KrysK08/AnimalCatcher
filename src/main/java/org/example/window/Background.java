@@ -1,8 +1,11 @@
 package org.example.window;
 
 import org.example.animal.flying.Pigeon;
+import org.example.animal.flying.Sparrow;
+import org.example.animal.jumping.Dinosour;
 import org.example.animal.jumping.Rabbit;
 import org.example.animal.running.Cat;
+import org.example.animal.running.Dog;
 import org.example.player.Boy;
 import org.example.player.Girl;
 import org.example.player.Player;
@@ -30,27 +33,18 @@ public class Background extends JFrame {
     private boolean jumping = false;
     private int jumpHeight = 0;
     private final int GRAVITY = 2;
-    private int catX = 100;
-    private int catY = 600;
-    private int dogX = 1000;
-    private int dogY = 650;
     private int dinosaurX = 10;
     private int dinosaurY = 500;
-    private int rabbitX = 700;
-    private int rabbitY = 550;
-    private int pigeonX = 400;
-    private int pigeonY = 100;
-    private int sparrowX = 800;
-    private int sparrowY = 300;
+
 
     private final Player player;
 
     private Cat cat;
-    private int catSpeed;
-    //private boolean catCaught = cat.getCaught();
-
     private Pigeon pigeon;
+    private Sparrow sparrow;
+    private Dinosour dinosour;
     private Rabbit rabbit;
+    private Dog dog;
 
     public Background() {
 
@@ -73,7 +67,6 @@ public class Background extends JFrame {
             player = new Girl("Ice Spice", 9, 250);
             jumpHeight = 280;
         }
-        cat = new Cat();
 
         addKeyListener(new KeyAdapter() {
             @Override
@@ -91,13 +84,25 @@ public class Background extends JFrame {
         cat.setX(100);
         cat.setY(600);
 
+        dog = new Dog();
+        dog.setX(1000);
+        dog.setY(650);
+
         pigeon = new Pigeon();
         pigeon.setX(400);
         pigeon.setY(100);
 
+        sparrow = new Sparrow();
+        sparrow.setX(800);
+        sparrow.setY(300);
+
         rabbit = new Rabbit();
         rabbit.setX(700);
         rabbit.setY(550);
+
+        dinosour = new Dinosour();
+        dinosour.setX(10);
+        dinosour.setY(500);
 
 
         new Thread(this::moveAnimals).start();
@@ -136,12 +141,14 @@ public class Background extends JFrame {
                 break;
         }
 
+
         Rectangle oldRect = new Rectangle(previousX, previousY, 150, 150);
         Rectangle newRect = new Rectangle(characterX, characterY, 150, 150);
 
         oldRect.add(newRect);
 
         repaint(oldRect.x, oldRect.y, oldRect.width, oldRect.height);
+        checkCollisions();
     }
 
     private void jump() {
@@ -194,6 +201,35 @@ public class Background extends JFrame {
             }
         }
     }
+    private void checkCollisions() {
+        Rectangle playerRect = new Rectangle(characterX, characterY, 150, 150);
+
+        if (!cat.getCaught() && playerRect.intersects(new Rectangle(cat.getX(), cat.getY(), 70, 80))) {
+            cat.setCaught(true);
+        }
+
+        if(!dog.getCaught() && playerRect.intersects(new Rectangle(dog.getX(), dog.getY(), 80, 80))) {
+            dog.setCaught(true);
+        }
+
+        if (!rabbit.getCaught() && playerRect.intersects(new Rectangle(rabbit.getX(), rabbit.getY(), 100, 100))) {
+            rabbit.setCaught(true);
+        }
+
+        if(!dinosour.getCaught() && playerRect.intersects(new Rectangle(dinosour.getX(), dinosour.getY(), 100, 100))) {
+            dinosour.setCaught(true);
+        }
+
+        if (!pigeon.getCaught() && playerRect.intersects(new Rectangle(pigeon.getX(), pigeon.getY(), 120, 80))) {
+            pigeon.setCaught(true);
+        }
+        if(!sparrow.getCaught() && playerRect.intersects(new Rectangle(sparrow.getX(), sparrow.getY(), 80, 80))) {
+            sparrow.setCaught(true);
+        }
+
+
+        repaint();
+    }
 
     @Override
     public void paint(Graphics g) {
@@ -203,12 +239,24 @@ public class Background extends JFrame {
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 150, 150, this);
-       // if(catCaught==false){g.drawImage(catImage, catX, catY, 70, 80, this);}
-        g.drawImage(dogImage, dogX, dogY, 80, 80, this);
-        g.drawImage(dinosaurImage, dinosaurX, dinosaurY, 100, 100, this);
-        g.drawImage(rabbitImage, rabbitX, rabbitY, 100, 100, this);
-        g.drawImage(pigeonImage, pigeonX, pigeonY, 120, 80, this);
-        g.drawImage(sparrowImage, sparrowX, sparrowY, 80, 80, this);
+        if (!cat.getCaught()) {
+            g.drawImage(catImage, cat.getX(), cat.getY(), 70, 80, this);
+        }
+        if (!rabbit.getCaught()) {
+            g.drawImage(rabbitImage, rabbit.getX(), rabbit.getY(), 100, 100, this);
+        }
+        if (!pigeon.getCaught()) {
+            g.drawImage(pigeonImage, pigeon.getX(), pigeon.getY(), 120, 80, this);
+        }
+        if(!dog.getCaught()) {
+            g.drawImage(dogImage, dog.getX(), dog.getY(), 80, 80, this);
+        }
+        if(!dinosour.getCaught()) {
+            g.drawImage(dinosaurImage, dinosaurX, dinosaurY, 100, 100, this);
+        }
+        if(!sparrow.getCaught()) {
+            g.drawImage(sparrowImage, sparrow.getX(), sparrow.getY(), 80, 80, this);
+        }
 
     }
 }

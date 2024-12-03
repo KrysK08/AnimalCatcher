@@ -47,6 +47,8 @@ public class Background extends JFrame {
 
     private Cat cat;
     private int catSpeed;
+    //private boolean catCaught = cat.getCaught();
+
     private Pigeon pigeon;
     private Rabbit rabbit;
 
@@ -201,7 +203,7 @@ public class Background extends JFrame {
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 150, 150, this);
-        g.drawImage(catImage, catX, catY, 70, 80, this);
+       // if(catCaught==false){g.drawImage(catImage, catX, catY, 70, 80, this);}
         g.drawImage(dogImage, dogX, dogY, 80, 80, this);
         g.drawImage(dinosaurImage, dinosaurX, dinosaurY, 100, 100, this);
         g.drawImage(rabbitImage, rabbitX, rabbitY, 100, 100, this);

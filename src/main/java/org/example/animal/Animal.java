@@ -4,10 +4,10 @@ public abstract class Animal {
     private String name;
     private int points;
     private boolean caught;
-    private int x; // Współrzędne X
-    private int y; // Współrzędne Y
+    private int x;
+    private int y;
 
-    public Animal(String name, int points) {
+    public Animal(String name, int points, boolean caught) {
         this.name = name;
         this.points = points;
         this.caught = false;
@@ -21,7 +21,7 @@ public abstract class Animal {
         return points;
     }
 
-    public boolean isCaught() {
+    public boolean getCaught() {
         return caught;
     }
 

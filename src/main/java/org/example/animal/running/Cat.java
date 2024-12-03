@@ -6,7 +6,7 @@ public class Cat extends Animal implements RunningAnimal {
     private int speedX;
 
     public Cat() {
-        super("Cat", 10);
+        super("Cat", 2, false);
         this.speedX = 2; //
     }
 

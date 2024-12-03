@@ -6,7 +6,7 @@ public class Pigeon extends Animal implements FlyingAnimal {
     private int speedX;
 
     public Pigeon() {
-        super("Pigeon", 15);
+        super("Pigeon", 1, false);
         this.speedX = 3;
     }
 

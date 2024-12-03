@@ -189,8 +189,11 @@ public class Background extends JFrame {
     private void moveAnimals() {
         while (true) {
             cat.run();
+            dog.run();
             pigeon.fly();
+            sparrow.fly();
             rabbit.jump();
+            dinosour.jump();
 
             repaint();
 

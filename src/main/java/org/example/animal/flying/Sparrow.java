@@ -4,10 +4,16 @@ import org.example.animal.Animal;
 
 public class Sparrow extends Animal implements FlyingAnimal{
     private int speedX;
+    private int speedY;
+    private boolean flyup;
+    public void setFlyup(boolean flyup) {
+        this.flyup = flyup;
+    }
 
     public Sparrow() {
         super("Sparrow", 7, false);
         this.speedX = 3;
+        this.speedY = 2;
     }
 
     @Override
@@ -16,6 +22,19 @@ public class Sparrow extends Animal implements FlyingAnimal{
             setX(getX() + speedX);
         } else {
             setX(0);
+        }
+        if (getY() <= 250) {
+            setFlyup(false);
+        }
+
+        if (getY() >= 370) {
+            setFlyup(true);
+        }
+
+        if (flyup) {
+            setY(getY() - speedY);
+        } else {
+            setY(getY() + speedY);
         }
     }
 }

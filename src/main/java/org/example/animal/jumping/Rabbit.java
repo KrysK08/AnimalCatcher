@@ -7,7 +7,7 @@ public class Rabbit extends Animal implements JumpingAnimal {
     private boolean movingUp;
 
     public Rabbit() {
-        super("Rabbit", 8, false);
+        super("Rabbit", 4, false);
         this.jumpHeight = 100;
         this.movingUp = true;
     }

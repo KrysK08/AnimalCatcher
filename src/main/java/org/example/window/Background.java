@@ -35,6 +35,7 @@ public class Background extends JFrame {
     private final int GRAVITY = 2;
     private int dinosaurX = 10;
     private int dinosaurY = 500;
+    private int Score = 0;
 
 
     private final Player player;
@@ -209,29 +210,41 @@ public class Background extends JFrame {
 
         if (!cat.getCaught() && playerRect.intersects(new Rectangle(cat.getX(), cat.getY(), 65, 75))) {
             cat.setCaught(true);
+            Score(2);
+
         }
 
         if(!dog.getCaught() && playerRect.intersects(new Rectangle(dog.getX(), dog.getY(), 80, 70))) {
             dog.setCaught(true);
+            Score(1);
         }
 
         if (!rabbit.getCaught() && playerRect.intersects(new Rectangle(rabbit.getX(), rabbit.getY(), 100, 100))) {
             rabbit.setCaught(true);
+            Score(4);
         }
 
         if(!dinosour.getCaught() && playerRect.intersects(new Rectangle(dinosour.getX(), dinosour.getY(), 100, 70))) {
             dinosour.setCaught(true);
+            Score(2);
         }
 
         if (!pigeon.getCaught() && playerRect.intersects(new Rectangle(pigeon.getX(), pigeon.getY(), 110, 80))) {
             pigeon.setCaught(true);
+            Score(4);
         }
         if(!sparrow.getCaught() && playerRect.intersects(new Rectangle(sparrow.getX(), sparrow.getY(), 80, 80))) {
             sparrow.setCaught(true);
+            Score(7);
         }
 
 
         repaint();
+    }
+
+
+    private void Score(int points){
+
     }
 
     @Override

@@ -155,7 +155,7 @@ public class Background extends JFrame {
         jumping = true;
         new Thread(() -> {
             int startY = characterY;
-            Rectangle jumpRect = new Rectangle(characterX, characterY, 150, 150);
+            Rectangle jumpRect = new Rectangle(characterX, characterY, 100, 100);
 
             for (int i = 0; i < jumpHeight; i++) {
                 characterY--;
@@ -205,13 +205,13 @@ public class Background extends JFrame {
         }
     }
     private void checkCollisions() {
-        Rectangle playerRect = new Rectangle(characterX, characterY, 150, 150);
+        Rectangle playerRect = new Rectangle(characterX, characterY, 80, 80);
 
-        if (!cat.getCaught() && playerRect.intersects(new Rectangle(cat.getX(), cat.getY(), 70, 80))) {
+        if (!cat.getCaught() && playerRect.intersects(new Rectangle(cat.getX(), cat.getY(), 65, 75))) {
             cat.setCaught(true);
         }
 
-        if(!dog.getCaught() && playerRect.intersects(new Rectangle(dog.getX(), dog.getY(), 80, 80))) {
+        if(!dog.getCaught() && playerRect.intersects(new Rectangle(dog.getX(), dog.getY(), 80, 70))) {
             dog.setCaught(true);
         }
 
@@ -219,11 +219,11 @@ public class Background extends JFrame {
             rabbit.setCaught(true);
         }
 
-        if(!dinosour.getCaught() && playerRect.intersects(new Rectangle(dinosour.getX(), dinosour.getY(), 100, 100))) {
+        if(!dinosour.getCaught() && playerRect.intersects(new Rectangle(dinosour.getX(), dinosour.getY(), 100, 70))) {
             dinosour.setCaught(true);
         }
 
-        if (!pigeon.getCaught() && playerRect.intersects(new Rectangle(pigeon.getX(), pigeon.getY(), 120, 80))) {
+        if (!pigeon.getCaught() && playerRect.intersects(new Rectangle(pigeon.getX(), pigeon.getY(), 110, 80))) {
             pigeon.setCaught(true);
         }
         if(!sparrow.getCaught() && playerRect.intersects(new Rectangle(sparrow.getX(), sparrow.getY(), 80, 80))) {

@@ -2,6 +2,8 @@ package org.example.animal.jumping;
 
 import org.example.animal.Animal;
 
+import java.awt.*;
+
 public class Dinosour extends Animal implements JumpingAnimal {
     private int speedX;
     private int speedY;
@@ -43,4 +45,14 @@ public class Dinosour extends Animal implements JumpingAnimal {
         }
     }
 
+    @Override
+    public Rectangle getBoundingBox() {
+        return new Rectangle(getX(), getY(), 100, 100);
+
+    }
+
+    @Override
+    public int getScore() {
+        return 2;
+    }
 }

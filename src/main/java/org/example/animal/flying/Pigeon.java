@@ -2,6 +2,8 @@ package org.example.animal.flying;
 
 import org.example.animal.Animal;
 
+import java.awt.*;
+
 public class Pigeon extends Animal implements FlyingAnimal {
     private int speedX;
     private int speedY;
@@ -37,5 +39,16 @@ public class Pigeon extends Animal implements FlyingAnimal {
         } else {
             setY(getY() + speedY);
         }
+    }
+
+    @Override
+    public Rectangle getBoundingBox() {
+        return new Rectangle(getX(), getY(), 120, 80);
+
+    }
+
+    @Override
+    public int getScore() {
+        return 0;
     }
 }

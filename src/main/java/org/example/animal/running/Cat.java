@@ -2,6 +2,8 @@ package org.example.animal.running;
 
 import org.example.animal.Animal;
 
+import java.awt.*;
+
 public class Cat extends Animal implements RunningAnimal {
     private int speedX;
     private int speedY;
@@ -38,5 +40,15 @@ public class Cat extends Animal implements RunningAnimal {
         } else {
             setY(getY() + speedY);
         }
+    }
+
+    @Override
+    public Rectangle getBoundingBox() {
+        return new Rectangle(getX(), getY(), 70, 80);
+    }
+
+    @Override
+    public int getScore() {
+        return 2;
     }
 }

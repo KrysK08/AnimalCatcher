@@ -1,5 +1,7 @@
 package org.example.animal;
 
+import java.awt.*;
+
 public abstract class Animal {
     private String name;
     private int points;
@@ -44,4 +46,8 @@ public abstract class Animal {
     public void setY(int y) {
         this.y = y;
     }
+
+    public abstract Rectangle getBoundingBox();
+
+    public abstract int getScore();
 }

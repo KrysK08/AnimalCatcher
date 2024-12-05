@@ -16,16 +16,17 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Background extends JFrame {
-    String character = MyJPanel.getWchichCahracter();
-    private Image skyImage = new ImageIcon("src/main/java/org/example/img/sky.jpg").getImage();
-    private Image grassImage = new ImageIcon("src/main/java/org/example/img/grass.jpg").getImage();
-    private Image characterImage = new ImageIcon(character).getImage();
-    private Image catImage = new ImageIcon("src/main/java/org/example/img/cat.png").getImage();
-    private Image dogImage = new ImageIcon("src/main/java/org/example/img/dog.png").getImage();
-    private Image dinosaurImage = new ImageIcon("src/main/java/org/example/img/dinosaur.png").getImage();
-    private Image rabbitImage = new ImageIcon("src/main/java/org/example/img/rabbit.png").getImage();
-    private Image pigeonImage = new ImageIcon("src/main/java/org/example/img/pigeon.png").getImage();
-    private Image sparrowImage = new ImageIcon("src/main/java/org/example/img/sparrow.png").getImage();
+    static String character = MyJPanel.getWchichCahracter();
+    private static final String image_path = "src/main/java/org/example/img/";
+    private static final Image skyImage = new ImageIcon(image_path + "sky.jpg").getImage();
+    private static final Image grassImage = new ImageIcon(image_path + "grass.jpg").getImage();
+    private static Image characterImage = new ImageIcon(character).getImage();
+    private static Image catImage = new ImageIcon(image_path +"cat.png").getImage();
+    private static Image dogImage = new ImageIcon(image_path +"dog.png").getImage();
+    private static Image dinosaurImage = new ImageIcon(image_path +"dinosaur.png").getImage();
+    private static Image rabbitImage = new ImageIcon(image_path +"rabbit.png").getImage();
+    private static Image pigeonImage = new ImageIcon(image_path +"pigeon.png").getImage();
+    private static Image sparrowImage = new ImageIcon(image_path +"sparrow.png").getImage();
 
 
     private int characterX = 500;
@@ -273,7 +274,7 @@ public class Background extends JFrame {
             g.drawImage(dogImage, dog.getX(), dog.getY(), 80, 80, this);
         }
         if(!dinosour.getCaught()) {
-            g.drawImage(dinosaurImage, dinosaurX, dinosaurY, 100, 100, this);
+            g.drawImage(dinosaurImage,dinosour.getX(), dinosour.getY(), 100, 100, this);
         }
         if(!sparrow.getCaught()) {
             g.drawImage(sparrowImage, sparrow.getX(), sparrow.getY(), 80, 80, this);

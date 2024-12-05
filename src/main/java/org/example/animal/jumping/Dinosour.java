@@ -6,10 +6,10 @@ public class Dinosour extends Animal implements JumpingAnimal {
     private int speedX;
     private int speedY;
     private int jumpHeight;
-    private boolean runup;
+    private boolean jumpup;
 
-    public void setRunup(boolean runup) {
-        this.runup = runup;
+    public void setJumpup(boolean jumpup) {
+        this.jumpup = jumpup;
     }
 
     public Dinosour() {
@@ -27,19 +27,20 @@ public class Dinosour extends Animal implements JumpingAnimal {
         } else {
             setX(1200);
         }
-        if (getY() <= 0) {
-            setRunup(false);
+
+        if (getY() <= 50) {
+            setJumpup(false);
         }
 
-        if (getY() >= 1200) {
-            setRunup(true);
+        if (getY() >= 500) {
+            setJumpup(true);
         }
 
-        if (runup) {
+        if (jumpup) {
             setY(getY() - speedY);
         } else {
             setY(getY() + speedY);
         }
-
     }
+
 }

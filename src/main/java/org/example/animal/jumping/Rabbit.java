@@ -3,29 +3,44 @@ package org.example.animal.jumping;
 import org.example.animal.Animal;
 
 public class Rabbit extends Animal implements JumpingAnimal {
+    private int speedX;
+    private int speedY;
     private int jumpHeight;
-    private boolean movingUp;
+    private boolean jumpup;
+
+    public void setJumpup(boolean jumpup) {
+        this.jumpup = jumpup;
+    }
+
 
     public Rabbit() {
         super("Rabbit", 4, false);
-        this.jumpHeight = 100;
-        this.movingUp = true;
+        this.jumpHeight = 80;
+        this.speedX = 1;
+        this.speedY = 2;
+
     }
 
     @Override
     public void jump() {
-       /* if (movingUp) {
-            if (getY() > 450 - jumpHeight) {
-                setY(getY() - 2);
-            } else {
-                movingUp = false;
-            }
+        if (getX() > 0) {
+            setX(getX() - speedX);
         } else {
-            if (getY() < 550) {
-                setY(getY() + 2);
-            } else {
-                movingUp = true;
-            }
-        }*/
+            setX(1200);
+        }
+
+        if (getY() <= 50) {
+            setJumpup(false);
+        }
+
+        if (getY() >= 500) {
+            setJumpup(true);
+        }
+
+        if (jumpup) {
+            setY(getY() - speedY);
+        } else {
+            setY(getY() + speedY);
+        }
     }
 }

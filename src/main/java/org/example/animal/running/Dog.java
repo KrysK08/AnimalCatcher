@@ -13,7 +13,7 @@ public class Dog extends Animal implements RunningAnimal{
     public Dog() {
         super("Dog",1, false);
         this.speedX = 2;
-        speedY = 1;
+        this.speedY = 1;
     }
     @Override
     public void run() {

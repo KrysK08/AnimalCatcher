@@ -196,7 +196,12 @@ public class Background extends JFrame {
             rabbit.jump();
             dinosour.jump();
 
-            repaint();
+            repaint(cat.getX()-10, cat.getY()-10,80,90);
+            repaint(dog.getX(), dog.getY(),80,80);
+            repaint(pigeon.getX(), pigeon.getY(),120,80);
+            repaint(sparrow.getX(), sparrow.getY(),80,80);
+            repaint(rabbit.getX(), rabbit.getY(),100,100);
+            repaint(dinosour.getX(), dinosour.getY(),100,100);
 
             try {
                 Thread.sleep(30);
@@ -205,7 +210,7 @@ public class Background extends JFrame {
             }
         }
     }
-    private void checkCollisions() {
+    public void checkCollisions() {
         Rectangle playerRect = new Rectangle(characterX, characterY, 80, 80);
 
         if (!cat.getCaught() && playerRect.intersects(new Rectangle(cat.getX(), cat.getY(), 65, 75))) {

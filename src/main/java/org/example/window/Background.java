@@ -37,8 +37,10 @@ public class Background extends JFrame {
     private final int GRAVITY = 2;
     private int Score = 0;
 
-    private int timeLeft = 40;
+    private int timeLeft = 20;
     private Timer timer;
+    private boolean lose = false;
+    private boolean win = false;
 
     private final Player player;
 
@@ -64,16 +66,20 @@ public class Background extends JFrame {
         setIconImage(logo.getImage());
 
         if (character.equals("src/main/java/org/example/img/boy.png")) {
-            player = new Boy("Central Cee", 7, 500);
+            player = new Boy("Central Cee", 7, 300);
             jumpHeight = 300;
         } else {
-            player = new Girl("Ice Spice", 9, 250);
+            player = new Girl("Ice Spice", 9, 280);
             jumpHeight = 280;
         }
 
         timer = new Timer(1000, e -> {
             if (timeLeft > 0) {
                 timeLeft--;
+                repaint();
+            } else if (!lose) {
+                lose = true;
+                timer.stop();
                 repaint();
             }
         });
@@ -197,6 +203,9 @@ public class Background extends JFrame {
 
     private void moveAnimals() {
         while (true) {
+            if(lose || win) {
+                break;
+            }
             cat.run();
             dog.run();
             pigeon.fly();
@@ -244,6 +253,12 @@ public class Background extends JFrame {
 
     private void Score(int points) {
         Score += points;
+        if (Score >= 20 && !win) {
+            win = true;
+            timer.stop();
+            repaint();
+            System.out.println("Score: " + Score);
+        }
         repaint();
     }
 
@@ -253,33 +268,43 @@ public class Background extends JFrame {
 
         g.drawImage(skyImage, 0, 0, getWidth(), getHeight() / 2, this);
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
+        if (lose) {
+            g.setColor(Color.RED);
+            g.setFont(new Font("Times New Roman", Font.BOLD, 100));
+            g.drawString("GAME OVER LOSER", getWidth() / 2 -470, getHeight() / 2);
+        } else if (win) {
+            g.setColor(Color.GREEN);
+            g.setFont(new Font("Times New Roman", Font.BOLD, 100));
+            g.drawString("YOU WON", getWidth() / 2 - 300, getHeight() / 2);
+        } else  {
 
-        g.drawImage(characterImage, characterX, characterY, 150, 150, this);
+            g.drawImage(characterImage, characterX, characterY, 150, 150, this);
 
-        g.setColor(Color.WHITE);
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Wynik: " + Score, 10, 55);
+            g.setColor(Color.WHITE);
+            g.setFont(new Font("Arial", Font.BOLD, 20));
+            g.drawString("Wynik: " + Score, 10, 55);
 
-        g.setFont(new Font("Arial", Font.BOLD, 20));
-        g.drawString("Czas: " + timeLeft, getWidth() - 100, 55);
+            g.setFont(new Font("Arial", Font.BOLD, 20));
+            g.drawString("Czas: " + timeLeft, getWidth() - 100, 55);
 
-        if (!cat.getCaught()) {
-            g.drawImage(catImage, cat.getX(), cat.getY(), 70, 80, this);
-        }
-        if (!rabbit.getCaught()) {
-            g.drawImage(rabbitImage, rabbit.getX(), rabbit.getY(), 100, 100, this);
-        }
-        if (!pigeon.getCaught()) {
-            g.drawImage(pigeonImage, pigeon.getX(), pigeon.getY(), 120, 80, this);
-        }
-        if (!dog.getCaught()) {
-            g.drawImage(dogImage, dog.getX(), dog.getY(), 80, 80, this);
-        }
-        if (!dinosour.getCaught()) {
-            g.drawImage(dinosaurImage, dinosour.getX(), dinosour.getY(), 100, 100, this);
-        }
-        if (!sparrow.getCaught()) {
-            g.drawImage(sparrowImage, sparrow.getX(), sparrow.getY(), 80, 80, this);
+            if (!cat.getCaught()) {
+                g.drawImage(catImage, cat.getX(), cat.getY(), 70, 80, this);
+            }
+            if (!rabbit.getCaught()) {
+                g.drawImage(rabbitImage, rabbit.getX(), rabbit.getY(), 100, 100, this);
+            }
+            if (!pigeon.getCaught()) {
+                g.drawImage(pigeonImage, pigeon.getX(), pigeon.getY(), 120, 80, this);
+            }
+            if (!dog.getCaught()) {
+                g.drawImage(dogImage, dog.getX(), dog.getY(), 80, 80, this);
+            }
+            if (!dinosour.getCaught()) {
+                g.drawImage(dinosaurImage, dinosour.getX(), dinosour.getY(), 100, 100, this);
+            }
+            if (!sparrow.getCaught()) {
+                g.drawImage(sparrowImage, sparrow.getX(), sparrow.getY(), 80, 80, this);
+            }
         }
     }
 }

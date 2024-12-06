@@ -49,6 +49,6 @@ public class Pigeon extends Animal implements FlyingAnimal {
 
     @Override
     public int getScore() {
-        return 0;
+        return 7;
     }
 }

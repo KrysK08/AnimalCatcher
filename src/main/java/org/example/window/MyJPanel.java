@@ -63,7 +63,7 @@ public class MyJPanel extends JPanel {
         JPanel statsPanel = new JPanel();
         statsPanel.setLayout(new FlowLayout(FlowLayout.CENTER, 20, 20));
 
-        JTextArea boyStats = new JTextArea("\n                            Boy character\n\n   Name: Central Cee\n   Speed: ???\n   Jumping: ???\n\n                                 History: \nWhile walking through the park, Central Cee \nnoticed a small dog trapped in some bushes. \nThe dog was scared and helpless, but \nCentral Cee couldn't just walk away. With \npatience, he carefully freed the dog and called \na shelter for help. Thanks to him, the dog got \nthe care it needed, and Central Cee decided \nto dedicate himself to animal rescue from that \nmoment on.", 20,16);
+        JTextArea boyStats = new JTextArea("\n                            Boy character\n\n   Name: Central Cee\n   Speed: 10\n   Jumping: 11\n\n                                 History: \nWhile walking through the park, Central Cee \nnoticed a small dog trapped in some bushes. \nThe dog was scared and helpless, but \nCentral Cee couldn't just walk away. With \npatience, he carefully freed the dog and called \na shelter for help. Thanks to him, the dog got \nthe care it needed, and Central Cee decided \nto dedicate himself to animal rescue from that \nmoment on.", 20,16);
         boyStats.setPreferredSize(new Dimension(320, 400));
         boyStats.setEditable(false);
         boyStats.setBackground(Color.PINK);
@@ -71,7 +71,7 @@ public class MyJPanel extends JPanel {
         boyStats.setFont(new Font("Arial", Font.PLAIN, 16));
 
 
-        JTextArea girlStats = new JTextArea("\n                          Girl character\n\n   Name: Ice Spice\n   Speed: ???\n   Jumping: ???\n\n                               History: \nWhile traveling through the jungle, Ice Spice \ncame across poachers hunting a rare \njaguar. Without hesitation, she alerted \nwildlife protectors and cleverly distracted \nthe poachers, giving them time to intervene. \nThanks to her bravery, the jaguar was \nsaved, and Ice Spice made a vow to keep \nfighting for the protection of wild animals.",20, 15);
+        JTextArea girlStats = new JTextArea("\n                          Girl character\n\n   Name: Ice Spice\n   Speed: 11\n   Jumping: 10\n\n                               History: \nWhile traveling through the jungle, Ice Spice \ncame across poachers hunting a rare \njaguar. Without hesitation, she alerted \nwildlife protectors and cleverly distracted \nthe poachers, giving them time to intervene. \nThanks to her bravery, the jaguar was \nsaved, and Ice Spice made a vow to keep \nfighting for the protection of wild animals.",20, 15);
         girlStats.setPreferredSize(new Dimension(300, 400));
         girlStats.setEditable(false);
         girlStats.setBackground(Color.PINK);

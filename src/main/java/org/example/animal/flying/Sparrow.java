@@ -47,6 +47,6 @@ public class Sparrow extends Animal implements FlyingAnimal{
 
     @Override
     public int getScore() {
-        return 7;
+        return 4;
     }
 }

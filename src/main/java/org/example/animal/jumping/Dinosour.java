@@ -30,7 +30,7 @@ public class Dinosour extends Animal implements JumpingAnimal {
             setX(1200);
         }
 
-        if (getY() <= 50) {
+        if (getY() <= 300) {
             setJumpup(false);
         }
 

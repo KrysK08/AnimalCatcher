@@ -37,6 +37,8 @@ public class Background extends JFrame {
     private final int GRAVITY = 2;
     private int Score = 0;
 
+    private int timeLeft = 40;
+    private Timer timer;
 
     private final Player player;
 
@@ -68,6 +70,14 @@ public class Background extends JFrame {
             player = new Girl("Ice Spice", 9, 250);
             jumpHeight = 280;
         }
+
+        timer = new Timer(1000, e -> {
+            if (timeLeft > 0) {
+                timeLeft--;
+                repaint();
+            }
+        });
+        timer.start();
 
         addKeyListener(new KeyAdapter() {
             @Override
@@ -181,7 +191,7 @@ public class Background extends JFrame {
             characterY = startY;
             jumping = false;
 
-            repaint(jumpRect.x, jumpRect.y, jumpRect.width, jumpRect.height);
+            repaint(jumpRect.x, jumpRect.y, 100, 100);
         }).start();
     }
 
@@ -234,7 +244,7 @@ public class Background extends JFrame {
 
     private void Score(int points) {
         Score += points;
-        System.out.println("Current Score: " + Score);
+        repaint();
     }
 
     @Override
@@ -245,6 +255,13 @@ public class Background extends JFrame {
         g.drawImage(grassImage, 0, getHeight() / 2, getWidth(), getHeight() / 2, this);
 
         g.drawImage(characterImage, characterX, characterY, 150, 150, this);
+
+        g.setColor(Color.WHITE);
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Wynik: " + Score, 10, 55);
+
+        g.setFont(new Font("Arial", Font.BOLD, 20));
+        g.drawString("Czas: " + timeLeft, getWidth() - 100, 55);
 
         if (!cat.getCaught()) {
             g.drawImage(catImage, cat.getX(), cat.getY(), 70, 80, this);

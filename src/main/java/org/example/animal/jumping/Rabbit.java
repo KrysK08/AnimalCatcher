@@ -18,8 +18,8 @@ public class Rabbit extends Animal implements JumpingAnimal {
     public Rabbit() {
         super("Rabbit", 4, false);
         this.jumpHeight = 80;
-        this.speedX = 1;
-        this.speedY = 2;
+        this.speedX = 2;
+        this.speedY = 3;
 
     }
 
@@ -31,7 +31,7 @@ public class Rabbit extends Animal implements JumpingAnimal {
             setX(1200);
         }
 
-        if (getY() <= 50) {
+        if (getY() <= 250) {
             setJumpup(false);
         }
 

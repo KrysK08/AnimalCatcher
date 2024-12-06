@@ -13,7 +13,7 @@ public class Sparrow extends Animal implements FlyingAnimal{
     }
 
     public Sparrow() {
-        super("Sparrow", 7, false);
+        super("Sparrow", 4, false);
         this.speedX = 3;
         this.speedY = 2;
     }

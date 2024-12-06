@@ -17,11 +17,11 @@ import java.awt.event.KeyAdapter;
 import java.awt.event.KeyEvent;
 
 public class Background extends JFrame {
-    static String character = MyJPanel.getWchichCahracter();
+    String character = MyJPanel.getWchichCahracter();
     private static final String image_path = "src/main/java/org/example/img/";
     private static final Image skyImage = new ImageIcon(image_path + "sky.jpg").getImage();
     private static final Image grassImage = new ImageIcon(image_path + "grass.jpg").getImage();
-    private static Image characterImage = new ImageIcon(character).getImage();
+    private Image characterImage = new ImageIcon(character).getImage();
     private static Image catImage = new ImageIcon(image_path + "cat.png").getImage();
     private static Image dogImage = new ImageIcon(image_path + "dog.png").getImage();
     private static Image dinosaurImage = new ImageIcon(image_path + "dinosaur.png").getImage();

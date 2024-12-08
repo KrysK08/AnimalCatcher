@@ -179,6 +179,7 @@ public class Background extends JFrame {
                 characterY--;
                 jumpRect.setLocation(characterX, characterY);
                 repaint(jumpRect.x, jumpRect.y, jumpRect.width, jumpRect.height);
+                checkCollisions();
                 try {
                     Thread.sleep(2);
                 } catch (InterruptedException e) {
@@ -190,6 +191,7 @@ public class Background extends JFrame {
                 characterY++;
                 jumpRect.setLocation(characterX, characterY);
                 repaint(jumpRect.x, jumpRect.y, jumpRect.width, jumpRect.height);
+                checkCollisions();
                 try {
                     Thread.sleep(4);
                 } catch (InterruptedException e) {

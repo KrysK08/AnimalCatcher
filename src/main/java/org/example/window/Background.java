@@ -51,6 +51,9 @@ public class Background extends JFrame {
     private Rabbit rabbit;
     private Dog dog;
 
+    private Image doubleBufferingImage;
+    private Graphics doubleBufferingGraphics;
+
     public Background() {
 
         int screenWidth = 1200;
@@ -263,7 +266,14 @@ public class Background extends JFrame {
     }
 
     @Override
-    public void paint(Graphics g) {
+    public void paint(Graphics g){
+        doubleBufferingImage = createImage(getWidth(), getHeight());
+        doubleBufferingGraphics = doubleBufferingImage.getGraphics();
+        paintComponent(doubleBufferingGraphics);
+        g.drawImage(doubleBufferingImage, 0, 0, this);
+    }
+
+    public void paintComponent(Graphics g) {
         super.paint(g);
 
         g.drawImage(skyImage, 0, 0, getWidth(), getHeight() / 2, this);

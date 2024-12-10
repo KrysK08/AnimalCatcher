@@ -34,7 +34,6 @@ public class Background extends JFrame {
     private int characterY = 500;
     private boolean jumping = false;
     private int jumpHeight = 0;
-    private final int GRAVITY = 2;
     private int Score = 0;
 
     private int timeLeft = 20;
@@ -59,7 +58,7 @@ public class Background extends JFrame {
         int screenWidth = 1200;
         int screenHeight = 800;
 
-        setTitle("Game");
+        setTitle("Animal Catcher");
         setSize(screenWidth, screenHeight);
         setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
         setLocationRelativeTo(null);
